@@ -7,8 +7,8 @@ const Pet = require('../models/Pet.model');
 const Group = require('../models/Group.model');
 
 // Import your Pet and Group routes
-const petRoutes = require('./pet.routes');   // Adjust the path accordingly
-const groupRoutes = require('./group.routes'); // Adjust the path accordingly
+const petRoutes = require('./pet.routes');
+const groupRoutes = require('./group.routes');
 
 // Use the Pet routes
 router.use('/api/pets', petRoutes); 

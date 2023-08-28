@@ -5,28 +5,23 @@ const router = express.Router();
 const User = require('../models/User.model');
 const Pet = require('../models/Pet.model');
 const Group = require('../models/Group.model');
-
-// //Create new group GET
-// router.get("/groups", (req, res, next) => {
-//     res.json("All good in here");
-//   });
   
 // Create a new group
-router.post('/groups', (req, res) => {
+router.post('/api/groups', (req, res) => {
     Group.create(req.body)
       .then(newGroup => res.status(201).json(newGroup))
       .catch(err => console.log(err));
   });
   
   // Get all groups
-  router.get('/groups', (req, res) => {
+  router.get('/api/groups', (req, res) => {
     Group.find()
       .then(groups => res.status(200).json(groups))
       .catch(err => console.log(err));
   });
   
   // Get a specific group by ID
-  router.get('/groups/:id', (req, res) => {
+  router.get('/api/groups/:id', (req, res) => {
     Group.findById(req.params.id)
       .then(group => {
         if (!group) {
@@ -39,7 +34,7 @@ router.post('/groups', (req, res) => {
   });
   
   // Update a group by ID
-  router.patch('/groups/:id', (req, res) => {
+  router.patch('/api/groups/:id', (req, res) => {
     Group.findByIdAndUpdate(req.params.id, req.body, { new: true })
       .then(group => {
         if (!group) {
